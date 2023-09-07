@@ -1,5 +1,7 @@
 package project.core.discount;
 
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 import project.core.member.Grade;
 import project.core.member.Member;
 
