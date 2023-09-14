@@ -1,6 +1,6 @@
 package project.core.order;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import project.core.discount.DiscountPolicy;
 import project.core.discount.FixDiscountPolicy;
@@ -10,15 +10,11 @@ import project.core.member.MemberRepository;
 import project.core.member.MemoryMemberRepository;
 
 @Component
+// final 인스턴스 변수를 받는 생성자를 자동으로 생성
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
-
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
